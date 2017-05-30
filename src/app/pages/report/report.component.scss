@@ -1,0 +1,54 @@
+.report-page {
+  background-color: #000;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  font-family: Courier, monospace;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1 {
+    color: #fff;
+    span {
+      display: block;
+      font-size: 1rem;
+      font-weight: normal;
+    }
+  }
+  fieldset {
+      height: 40%;
+      width: 100%;
+      border: none;
+      input, select {
+        width: 100%;
+        height: 30px;
+        margin: 0.5rem 0;
+      }
+      textarea {
+        width: 100%;
+        height: 300px;
+      }
+      
+    }
+    button {
+      background-color: #000;
+      box-shadow: none;
+      outline: none;
+      border: none;
+      color: #fff;
+      height: 100%;
+      width: 500px;
+      cursor: pointer;
+      font-size: 1.7rem;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      width: 95%;
+      height: 70vh;
+    }
+
+}

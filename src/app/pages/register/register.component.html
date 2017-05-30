@@ -1,3 +1,19 @@
-<p>
-  register works!
-</p>
+<div class="register-page">
+  <h1 class="page-heading">Register</h1>
+  <form action class="mars-form" name="registerForm" >
+    <fieldset>
+      <input type="text" placeholder="Name" name="name">
+      <input type="number" placeholder="Age" name="age">
+      <div class="custom-select">
+        <select name="occupation">
+          <option class="placeholder">Select Occupation</option>
+          <option *ngFor="let item of occupations" value="{{ item }}">{{ item }}</option>
+
+        </select>
+      </div>
+    </fieldset>
+    <fieldset>
+      <button class="button">Check in</button>
+    </fieldset>
+  </form>
+</div>
