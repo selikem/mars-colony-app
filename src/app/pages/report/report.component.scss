@@ -17,7 +17,7 @@
     }
   }
   fieldset {
-      height: 40%;
+      height: auto;
       width: 100%;
       border: none;
       input, select {
@@ -43,6 +43,7 @@
       width: 500px;
       cursor: pointer;
       font-size: 1.7rem;
+      height: 200px;
     }
     form {
       display: flex;
