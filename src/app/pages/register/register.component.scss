@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: Courier, monospace;
+  font-family: 'Raleway', Courier, monospace;
 
   h1 {
     color: #fff;
@@ -26,6 +26,7 @@
         width: 100%;
         height: 30px;
         margin: 0.5rem 0;
+        font-size: 1.2rem;
 
       }
       button {
@@ -43,6 +44,31 @@
 
     }
   }
+   .custom-select {
+      select {
+        background: #000;
+        color: #fff;
+        border: none;
+        border-bottom: 2px solid #fff;
+        font-size: 1.2rem;
+        -webkit-appearance: none;
+        -webkit-border-radius: 0px;
+      }
+
+    }
   
 
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #E53436;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #E53436;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #E53436;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: #E53436;
 }

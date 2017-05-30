@@ -7,7 +7,7 @@
       <div class="custom-select">
         <select name="occupation">
           <option class="placeholder">Select Occupation</option>
-          <option *ngFor="let item of occupations" value="{{ item }}">{{ item }}</option>
+          <option *ngFor="let item of occupations" value="{{ item.name }}">{{ item.name }}</option>
 
         </select>
       </div>

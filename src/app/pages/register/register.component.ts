@@ -1,17 +1,23 @@
 import { Component, OnInit } from '@angular/core';
+import { Job } from '../../models/job';
+import { JobsService } from '../../services/jobs.service';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
+  providers: [JobsService]
 })
 export class RegisterComponent implements OnInit {
 
-  occupations = [];
+  public occupations: Job[] = [];
 
-  constructor() { }
+  constructor(private jobService: JobsService) { }
 
   ngOnInit() {
+    this.jobService.getData().subscribe((data)=> {
+      this.occupations = data.jobs;
+    });
   }
 
 }

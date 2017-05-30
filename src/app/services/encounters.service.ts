@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
-import { Encounter } from '../models/encounter'
+import { Encounter } from '../models/encounter';
 
 @Injectable()
 export class EncountersService {

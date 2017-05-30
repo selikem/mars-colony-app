@@ -5,7 +5,7 @@
       <div class="custom-select">
         <select name="alienType">
           <option class="placeholder">Select Alien Type</option>
-          <option *ngFor="let item of alienTypes" value="{{ item }}">{{ item }}</option>
+          <option *ngFor="let item of aliens" value="{{ item.type }}">{{ item.type }}</option>
         </select>
         <textarea name="actionTaken" rows="10" placeholder="Action Taken"></textarea>
       </div>
