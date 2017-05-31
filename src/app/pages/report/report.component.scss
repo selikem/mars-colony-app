@@ -3,13 +3,14 @@
   height: 100%;
   width: 100%;
   text-align: center;
-  font-family: 'Raleway', Courier, monospace;
+  font-family: 'Poiret One', Courier, monospace;
   display: flex;
   flex-direction: column;
   align-items: center;
 
   h1 {
     color: #fff;
+    padding: 2rem 1rem;
     span {
       display: block;
       font-size: 1rem;
@@ -28,7 +29,7 @@
       }
       textarea {
         width: 100%;
-        height: 300px;
+        height: 200px;
         font-size: 1.2rem;
       }
       
@@ -50,13 +51,13 @@
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
-      width: 95%;
+      width: 85%;
       height: 70vh;
     }
     .custom-select {
       select {
         background: #000;
-        color: #fff;
+        color: #ed4343;
         border: none;
         border-bottom: 2px solid #fff;
         font-size: 1.2rem;
@@ -69,14 +70,18 @@
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: #E53436;
+  color: #ed4343;
+  padding: 0.2rem;
 }
 ::-moz-placeholder { /* Firefox 19+ */
-  color: #E53436;
+  color: #ed4343;
+  padding: 0.2rem;
 }
 :-ms-input-placeholder { /* IE 10+ */
-  color: #E53436;
+  color: #ed4343;
+  padding: 0.2rem;
 }
 :-moz-placeholder { /* Firefox 18- */
-  color: #E53436;
+  color: #ed4343;
+  padding: 0.2rem;
 }

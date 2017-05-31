@@ -1,11 +1,13 @@
 .encounters-page {
   height: 100%;
   width: 100%;
-  font-family: 'Raleway', Courier, monospace;
+  font-family: 'Poiret One', Courier, monospace;
   text-align: center;
+  background: #fff;
 
   h1 {
     height: 5%;
+    padding: 2rem 1rem;
     span {
       display: block;
       font-size: 1rem;
@@ -18,6 +20,10 @@
     overflow: scroll;
     list-style-type: none;
     text-align: left;
+    li {
+      padding-bottom: 1rem;
+      padding-left: 1rem;
+    }
   }
 
   footer {
@@ -30,9 +36,9 @@
       border: none;
       color: #fff;
       height: 100%;
-      width: 500px;
+      width: 70vw;
       cursor: pointer;
-      font-size: 1.7rem;
+      font-size: 2rem;
     }
 
   }
