@@ -4,6 +4,7 @@ import { JobsService } from '../../services/jobs.service';
 import { slideInOutAnimation } from '../../animations/slideTransition';
 import { ColonistService } from '../../services/colonist.service';
 import { Colonist } from '../../models/colonist';
+import { FormGroup, FormControl, FormBuilder, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -19,6 +20,7 @@ export class RegisterComponent implements OnInit {
   public NO_OCCUPATION_SELECTED = '(none)';
 
   colonist: Colonist;
+  registerForm: FormGroup;
 
   constructor(private jobService: JobsService,private colonistService: ColonistService) { 
     this.colonist = new Colonist('','', this.NO_OCCUPATION_SELECTED);
@@ -29,6 +31,11 @@ export class RegisterComponent implements OnInit {
     this.jobService.getData().subscribe((data)=> {
       this.occupations = data.jobs;
     });
+    this.registerForm = new FormGroup( {
+      name: new FormControl('', [Validators.required, Validators.maxLength(100), Validators.minLength(3)]),
+      age: new FormControl('', [Validators.required,]),
+      job_id: new FormControl(this.NO_OCCUPATION_SELECTED, [])
+    })
   }
 
   postColonist () {
