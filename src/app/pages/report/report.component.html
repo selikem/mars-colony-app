@@ -1,6 +1,6 @@
 <div class="report-page">
   <h1 class="page-heading">Report Encounter <span>Safety on Mars is your responsibility</span></h1>
-  <form class="mars-form" name="reportForm" #arrivalForm="ngForm" (ngSubmit)="onSubmit()">
+  <form class="mars-form" name="reportForm" (ngSubmit)="onSubmit()">
     <fieldset>
       <div class="custom-select">
         <select name="alienType" [(ngModel)]="report.atype">
@@ -11,7 +11,7 @@
       </div>
     </fieldset>
     <fieldset>
-      <button class="button" type="submit" [disabled]="!arrivalForm.form.valid">Submit Report</button>
+      <button class="button" type="submit" [disabled]="!reportForm.form.valid">Submit Report</button>
     </fieldset>
   </form>
 </div>
