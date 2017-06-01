@@ -4,6 +4,8 @@ import { AliensService } from '../../services/aliens.service';
 import { slideInOutAnimation } from '../../animations/slideTransition';
 import { ReportService } from '../../services/report.service';
 import { Report } from '../../models/report';
+import { FormGroup, FormControl, FormBuilder, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
+
 
 @Component({
   selector: 'app-report',
@@ -19,6 +21,7 @@ export class ReportComponent implements OnInit {
   public NO_ATYPE_SELECTED = '(none)';
 
   report: Report;
+  reportForm: FormGroup;
 
   constructor(private alienService: AliensService, private reportService: ReportService) {
     this.report = new Report (this.NO_ATYPE_SELECTED, '', '', window.localStorage.colonist_id);
@@ -28,6 +31,10 @@ export class ReportComponent implements OnInit {
     this.alienService.getData().subscribe((data)=> {
       this.aliens = data.aliens;
     });
+    this.reportForm = new FormGroup( {
+      alienType: new FormControl(this.NO_ATYPE_SELECTED, [Validators.required]),
+      actionTaken: new FormControl('', [Validators.required])
+    })
   }
 
   postReport () {
@@ -38,8 +45,5 @@ export class ReportComponent implements OnInit {
     return this.report.atype === this.NO_ATYPE_SELECTED;
   }
 
-  onSubmit () {
-    this.postReport();
-  }
 
 }
