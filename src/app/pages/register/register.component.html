@@ -1,11 +1,11 @@
 <div class="register-page">
   <h1 class="page-heading">Register</h1>
-  <form action class="mars-form" name="registerForm" #arrivalForm="ngForm" (ngSubmit)="onSubmit()">
+  <form action class="mars-form" name="registerForm" #arrivalForm="ngForm" (ngSubmit)="postColonist()">
     <fieldset>
-      <input type="text" placeholder="Name" name="name" [(ngModel)]="colonist.name" required>
-      <input type="number" placeholder="Age" name="age" [(ngModel)]="colonist.age" required>
+      <input type="text" placeholder="Name" name="name" required>
+      <input type="number" placeholder="Age" name="age" required>
       <div class="custom-select">
-        <select name="job_id" [(ngModel)]="colonist.job_id">
+        <select name="job_id">
           <option class="placeholder" value="{{NO_OCCUPATION_SELECTED}}">Select Occupation</option>
           <option *ngFor="let item of occupations" value="{{ item.id }}">{{ item.name }}</option>
 

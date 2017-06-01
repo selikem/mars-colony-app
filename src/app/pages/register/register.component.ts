@@ -41,8 +41,4 @@ export class RegisterComponent implements OnInit {
     return this.colonist.job_id === this.NO_OCCUPATION_SELECTED;
   }
 
-  onSubmit () {
-    this.postColonist();
-  }
-
 }
