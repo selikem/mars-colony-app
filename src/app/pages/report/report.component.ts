@@ -21,7 +21,7 @@ export class ReportComponent implements OnInit {
   report: Report;
 
   constructor(private alienService: AliensService, private reportService: ReportService) {
-    this.report = new Report (this.NO_ATYPE_SELECTED, '', '', '');
+    this.report = new Report (this.NO_ATYPE_SELECTED, '', '', window.localStorage.colonist_id);
    }
 
   ngOnInit() {

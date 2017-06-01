@@ -32,7 +32,9 @@ export class RegisterComponent implements OnInit {
   }
 
   postColonist () {
-    this.colonistService.postData(this.colonist).subscribe( newColonist => console.log (newColonist) );
+    this.colonistService.postData(this.colonist).subscribe( newColonist => {
+      window.localStorage.setItem('colonist_id', newColonist.colonist.id);
+    });
   }
 
   get noOccupation() {
