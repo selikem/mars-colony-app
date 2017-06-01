@@ -6,6 +6,18 @@ import { ColonistService } from '../../services/colonist.service';
 import { Colonist } from '../../models/colonist';
 import { FormGroup, FormControl, FormBuilder, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 
+const cantBe = (value: string): ValidatorFn => {
+  return (control: AbstractControl) => {
+    return control.value === value ? { 'Can\'t be this value': value} : null;
+  };
+}
+
+const age =  (tooYoung: number, tooOld: number): ValidatorFn => {
+  return (control: AbstractControl) => {
+    return control.value < 0, control.value < tooYoung || control.value > tooOld ? { 'You\'re not the right age': age} : null;
+  };
+}
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -33,19 +45,36 @@ export class RegisterComponent implements OnInit {
     });
     this.registerForm = new FormGroup( {
       name: new FormControl('', [Validators.required, Validators.maxLength(100), Validators.minLength(3)]),
-      age: new FormControl('', [Validators.required,]),
-      job_id: new FormControl(this.NO_OCCUPATION_SELECTED, [])
+      age: new FormControl('', [Validators.required, age(0,100)]),
+      job_id: new FormControl(this.NO_OCCUPATION_SELECTED, [cantBe(this.NO_OCCUPATION_SELECTED)])
     })
   }
 
   postColonist () {
     this.colonistService.postData(this.colonist).subscribe( newColonist => {
       window.localStorage.setItem('colonist_id', newColonist.colonist.id);
+      console.log(newColonist);
     });
   }
 
   get noOccupation() {
     return this.colonist.job_id === this.NO_OCCUPATION_SELECTED;
   }
+
+  register (event) {
+    event.preventDefault();
+    if (this.registerForm.invalid) {
+
+    } else {
+      const name = this.registerForm.get('name').value;
+      const age = this.registerForm.get('age').value;
+      const job_id = this.registerForm.get('job_id').value;
+      this.colonist = new Colonist(name , age, job_id);
+      this.postColonist();
+    }
+
+  }
+
+
 
 }

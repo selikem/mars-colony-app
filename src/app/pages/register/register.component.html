@@ -1,6 +1,6 @@
 <div class="register-page">
   <h1 class="page-heading">Register</h1>
-  <form action class="mars-form" [formGroup]="registerForm" name="registerForm">
+  <form action class="mars-form" [formGroup]="registerForm" (ngSubmit)= "register($event)" name="registerForm">
     <fieldset>
       <input type="text" placeholder="Name" name="name" formControlName="name" required>
       <input type="number" placeholder="Age" name="age" formControlName="age" required>
@@ -13,7 +13,7 @@
       </div>
     </fieldset>
     <fieldset>
-      <button class="button" type="submit" [disabled]="noOccupation || !registerForm.form.valid" >Check in</button>
+      <button class="button" type="submit" [disabled]="registerForm.invalid" >Check in</button>
     </fieldset>
   </form>
 </div>
