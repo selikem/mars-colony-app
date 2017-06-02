@@ -1,5 +1,5 @@
 .report-page {
-  background-color: #000;
+  background: #000;
   height: 100%;
   width: 100%;
   text-align: center;
@@ -26,11 +26,14 @@
         height: 30px;
         margin: 0.5rem 0;
         font-size: 1.2rem;
+        font-family: 'Poiret One', Courier, monospace;
+        
       }
       textarea {
         width: 100%;
         height: 200px;
         font-size: 1.2rem;
+        font-family: 'Poiret One', Courier, monospace;
       }
       
     }
@@ -40,11 +43,11 @@
       outline: none;
       border: none;
       color: #fff;
-      height: 100%;
-      width: 500px;
+      height: 30vh;
+      width: 100vw;
       cursor: pointer;
       font-size: 1.7rem;
-      height: 200px;
+      font-family: 'Poiret One', Courier, monospace;
     }
     form {
       display: flex;
@@ -67,6 +70,14 @@
 
     }
 
+    #mars-form-validation-wrapper {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -84,4 +95,24 @@
 :-moz-placeholder { /* Firefox 18- */
   color: #ed4343;
   padding: 0.2rem;
+}
+
+@keyframes border-pulse {
+  0% {
+    box-shadow: 0 0 0 2px rgba(237, 67, 67, 1);
+  }
+  70% {
+    box-shadow: 0 0 0 5px  rgba(237, 67, 67, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 7px solid rgba(237, 67, 67, 0);
+  }
+} 
+
+.invalid-form {
+  .ng-invalid {
+    .ng-invalid {
+      animation: border-pulse 0.5s infinite;
+    }
+  }
 }

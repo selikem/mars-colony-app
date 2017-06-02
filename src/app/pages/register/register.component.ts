@@ -5,6 +5,7 @@ import { slideInOutAnimation } from '../../animations/slideTransition';
 import { ColonistService } from '../../services/colonist.service';
 import { Colonist } from '../../models/colonist';
 import { FormGroup, FormControl, FormBuilder, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 const cantBe = (value: string): ValidatorFn => {
   return (control: AbstractControl) => {
@@ -34,7 +35,7 @@ export class RegisterComponent implements OnInit {
   colonist: Colonist;
   registerForm: FormGroup;
 
-  constructor(private jobService: JobsService,private colonistService: ColonistService) { 
+  constructor(private jobService: JobsService,private colonistService: ColonistService, private router: Router) { 
     this.colonist = new Colonist('','', this.NO_OCCUPATION_SELECTED);
 
   }
@@ -52,8 +53,9 @@ export class RegisterComponent implements OnInit {
 
   postColonist () {
     this.colonistService.postData(this.colonist).subscribe( newColonist => {
-      window.localStorage.setItem('colonist_id', newColonist.colonist.id);
+      localStorage.setItem('colonist_id', newColonist.colonist.id);
       console.log(newColonist);
+      this.router.navigate(['/encounters']);
     });
   }
 
@@ -64,7 +66,12 @@ export class RegisterComponent implements OnInit {
   register (event) {
     event.preventDefault();
     if (this.registerForm.invalid) {
-
+      const formWrapper = document.getElementById("mars-form-validation-wrapper");
+      formWrapper.className = '';
+      formWrapper.className += "invalid-form";
+      // setTimeout(function(){
+      //   formWrapper.className = '';
+      // }, 300);
     } else {
       const name = this.registerForm.get('name').value;
       const age = this.registerForm.get('age').value;

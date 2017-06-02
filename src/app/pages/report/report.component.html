@@ -1,17 +1,19 @@
 <div class="report-page">
-  <h1 class="page-heading">Report Encounter <span>Safety on Mars is your responsibility</span></h1>
-  <form class="mars-form" name="reportForm" [formGroup]="reportForm" (ngSubmit)= "submitReport($event)">
-    <fieldset>
-      <div class="custom-select">
-        <select name="alienType" formControlName="alienType" required>
-          <option class="placeholder" value="{{NO_ATYPE_SELECTED}}">Select Alien Type</option>
-          <option *ngFor="let item of aliens" value="{{ item.type }}">{{ item.type }}</option>
-        </select>
-        <textarea name="actionTaken" rows="10" placeholder="Action Taken" formControlName="actionTaken" required></textarea>
-      </div>
-    </fieldset>
-    <fieldset>
-      <button class="button" type="submit" [disabled]="reportForm.invalid">Submit Report</button>
-    </fieldset>
-  </form>
+  <div id="mars-form-validation-wrapper" class="mars-form-validation-wrapper">
+    <h1 class="page-heading">Report Encounter <span>Safety on Mars is your responsibility</span></h1>
+    <form class="mars-form" name="reportForm" [formGroup]="reportForm" (ngSubmit)= "submitReport($event)">
+      <fieldset>
+        <div class="custom-select">
+          <select name="alienType" formControlName="alienType" required>
+            <option class="placeholder" value="{{NO_ATYPE_SELECTED}}">Select Alien Type</option>
+            <option *ngFor="let item of aliens" value="{{ item.type }}">{{ item.type }}</option>
+          </select>
+          <textarea name="actionTaken" rows="10" placeholder="Action Taken" formControlName="actionTaken" required></textarea>
+        </div>
+      </fieldset>
+      <fieldset>
+        <button class="button" type="submit">Submit Report</button>
+      </fieldset>
+    </form>
+  </div>
 </div>
