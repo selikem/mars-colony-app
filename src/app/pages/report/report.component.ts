@@ -58,7 +58,7 @@ export class ReportComponent implements OnInit {
   submitReport(event) {
     event.preventDefault();
     const currentDate = new Date();
-    const dateString = `${currentDate.getFullYear()} - ${('0'+(currentDate.getMonth() + 1)).slice(-2)} - ${('0'+currentDate.getDate()).slice(-2)} `;
+    const dateString = `${currentDate.getFullYear()} - ${('0'+(currentDate.getMonth() + 1)).slice(-2)} - ${('0'+currentDate.getDate()).slice(-2)}`;
     if (this.reportForm.invalid) {
       const formWrapper = document.getElementById("mars-form-validation-wrapper");
       formWrapper.className = '';

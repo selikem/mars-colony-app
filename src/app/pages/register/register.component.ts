@@ -31,9 +31,8 @@ export class RegisterComponent implements OnInit {
 
   public occupations: Job[] = [];
   public NO_OCCUPATION_SELECTED = '(none)';
-
-  colonist: Colonist;
-  registerForm: FormGroup;
+  public colonist: Colonist;
+  public registerForm: FormGroup;
 
   constructor(private jobService: JobsService,private colonistService: ColonistService, private router: Router) { 
     this.colonist = new Colonist('','', this.NO_OCCUPATION_SELECTED);
@@ -69,9 +68,6 @@ export class RegisterComponent implements OnInit {
       const formWrapper = document.getElementById("mars-form-validation-wrapper");
       formWrapper.className = '';
       formWrapper.className += "invalid-form";
-      // setTimeout(function(){
-      //   formWrapper.className = '';
-      // }, 300);
     } else {
       const name = this.registerForm.get('name').value;
       const age = this.registerForm.get('age').value;
