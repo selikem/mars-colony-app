@@ -58,7 +58,7 @@ export class ReportComponent implements OnInit {
   submitReport(event) {
     event.preventDefault();
     const currentDate = new Date();
-    const dateString = `${currentDate.getFullYear()} - ${('0'+(currentDate.getMonth() + 1)).slice(-2)} - ${('0'+currentDate.getDate()).slice(-2)}`;
+    const dateString = `${currentDate.getFullYear()}-${('0'+(currentDate.getMonth() + 1)).slice(-2)}-${('0'+currentDate.getDate()).slice(-2)}`;
     if (this.reportForm.invalid) {
       const formWrapper = document.getElementById("mars-form-validation-wrapper");
       formWrapper.className = '';
@@ -70,7 +70,7 @@ export class ReportComponent implements OnInit {
     } else {
       const aType = this.reportForm.get('alienType').value;
       const action = this.reportForm.get('actionTaken').value;
-      this.report = new Report(aType , dateString, action, localStorage.getItem('colonist_id'));
+      this.report = new Report(aType , dateString, action, JSON.parse(localStorage.getItem('colonist')).colonist.id);
       this.postReport();
     }
   }

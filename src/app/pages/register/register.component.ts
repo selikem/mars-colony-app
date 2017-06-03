@@ -52,7 +52,7 @@ export class RegisterComponent implements OnInit {
 
   postColonist () {
     this.colonistService.postData(this.colonist).subscribe( newColonist => {
-      localStorage.setItem('colonist_id', newColonist.colonist.id);
+      localStorage.setItem('colonist', JSON.stringify(newColonist));
       console.log(newColonist);
       this.router.navigate(['/encounters']);
     });
